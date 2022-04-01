@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+from xml.parsers.expat import model
 import pywt
 import cv2
 import matplotlib.pyplot as cplt
@@ -9,7 +10,7 @@ import base64
 
 
 
-class Classification :
+class Model :
         # roi ---> Region Of Interest
         # class instance
     face_cascade = cv2.CascadeClassifier('dependencies/opencv/data/haarcascades/haarcascade_frontalface_default.xml')
@@ -83,17 +84,17 @@ class Classification :
         self.cropped_faces = [ ]
         if img is  not None :
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            faces = Classification.face_cascade.detectMultiScale(gray, 1.3, 5)
+            faces = Model.face_cascade.detectMultiScale(gray, 1.3, 5)
             for (x,y,w,h) in faces: 
                 roi_gray = gray[y:y+h, x:x+w]
                 roi_color = img[y:y+h, x:x+w]
-                eyes = Classification.eye_cascade.detectMultiScale(roi_gray)
+                eyes = Model.eye_cascade.detectMultiScale(roi_gray)
                 if len(eyes) >= 2:
                     self.cropped_faces.append(roi_color)
         return self.cropped_faces
 
             
-    def main(self, images) :
+    def run(self, images) :
         result = []
         # Required Objects for our model . 
         logistic_regression = self.load_model().logistic_regression
