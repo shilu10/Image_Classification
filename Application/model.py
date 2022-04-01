@@ -8,8 +8,6 @@ import numpy as np
 import pickle, json
 import base64
 
-
-
 class Model :
         # roi ---> Region Of Interest
         # class instance
@@ -55,7 +53,6 @@ class Model :
             self.byts = base64.b64decode(f)
             return self 
 
-
     def base64_to_imagee(self, byts) :
         with open("imageToSave.png", "wb") as fh:
             fh.write(base64.decodebytes(byts))
@@ -92,8 +89,7 @@ class Model :
                 if len(eyes) >= 2:
                     self.cropped_faces.append(roi_color)
         return self.cropped_faces
-
-            
+          
     def run(self, images) :
         result = []
         # Required Objects for our model . 
@@ -112,8 +108,6 @@ class Model :
             pred_prob = logistic_regression.predict_proba(X)
             answer = new_label[prediction[0]]
             result.append(answer)
-        print(result)
         if len(result) >= 1  :
-
             return result, prediction[0], pred_prob
         return result

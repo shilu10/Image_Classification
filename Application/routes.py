@@ -4,10 +4,9 @@ import cv2, base64
 from PIL import Image
 import io
 from flask import *
+
 app = Flask(__name__, template_folder = 'templates')
 app.config['SECRET_KEY'] = "shilu"
-
-
 model = Model()
 @app.route('/', methods = ['GET', 'POST'])
 def home() :
@@ -26,7 +25,6 @@ def home() :
           return render_template('result.html', result = answer[1])
     else :
         return render_template('home.html')
-
     
 if __name__ == "__main__" :
     app.run(debug = True, port = 3000)
