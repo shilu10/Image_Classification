@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Person Classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/app.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ url_for('home') }}">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYKaxdirYVxL5KkLxFMmI2uvRr1ZHCXTQEsg&usqp=CAU" width="30" height="30" alt="">
+    </a>
+  </nav>
+
+
+
+  <div style="text-align:center; background-color:rgb(238, 194, 211)">
+    <h2 style = "background-color: aquamarine;"><b><i>Sports Personality Image Classification</i></b></h2>
+    
+  </div>
+  <div>
+
+    {% if result == 0 %}
+    <div>    
+      <h1><b>Result : </b>: <span class='safe'><b>Virat Kohli</b></span></h1>
+    <img class="gif" src="{{ url_for('static', filename='virat.gif') }}" alt="Not a spam image" width = "200" height = "200">
+  </div>
+
+    
+    {% elif result == 1 %}
+    <div>
+    <h1><b>Result : </b>: <span class='safe'><b>Cristiano Ronaldo</b></span></h1>
+    <img class="gif" src="{{ url_for('static', filename='ronaldo.gif') }}" alt="Not a spam image" width = "200" height = "200">
+  </div>
+
+    {% elif result == 3 %} 
+    <div>
+    <h1><b>Result : </b>: <span class='safe'><b>Lionel Messi</b></span></h1>
+    <img class="gif" src="{{ url_for('static', filename='messi.gif') }}" alt="Not a spam image" width = "200" height = "200">
+  </div>
+    
+
+    {% elif result == 2 %}
+    <div>
+    <h1><b>Result : </b>: <span class='safe'><b>Leborn James</b></span></h1>
+    <img class="gif" src="{{ url_for('static', filename='james.gif') }}" alt="Not a spam image" width = "200" height = "200">
+  </div>
+
+    {% elif result == 4 %}
+    <div>x
+    <h1><b>Result : </b>: <span class='safe'><b>Neymar Juior</b></span></h1>
+    <img class="gif" src="{{ url_for('static', filename='neymar.gif') }}" alt="Not a spam image" width = "200" height = "200">
+   </div>
+    {% elif result == 5 %}
+    <div >
+    <h1><b>Result : </b>: <span class='safe'><b>The God of Cricket</b></span></h1>
+    <img class="gif" src="{{ url_for('static', filename='sachin.gif') }}" alt="Not a spam image" width = "200" height = "200">
+   </div>
+    
+    
+    
+    {% endif %}
+  </div>
+
+
+</body>

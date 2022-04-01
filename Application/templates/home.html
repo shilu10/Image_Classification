@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Person Classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/app.css">
+</head>
+
+
+  <!-- Navbar -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #333;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      
+    }
+    .newc{
+      background-color: #333;
+    }
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: rgb(241, 250, 250);
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #ece9e9;
+      color: rgb(7, 5, 5);
+    }
+
+    .myclass + label {
+    font-size: 2em;
+    font-weight: 700;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+  .myclass:focus + label,
+  .myclass + label:hover {
+  background-color: purple;
+}
+
+    </style>
+    </head>
+    <body>
+
+      {% with messages = get_flashed_messages(with_categories = True) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %} 
+            <div class=" alert alert-danger"role="alert">
+                <span ><b>{{ message }}</b></span>
+                <button onclick=delete_flash(this) type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+                
+            </div>
+        {%endif%}
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
+    
+    
+    
+    <div style="text-align:center; background-color:rgb(238, 194, 211)">
+      <h2 style = "background-color: aquamarine;"><b><i>Sports Personality Image Classification</i></b></h2>
+      
+    </div>
+    <div style="padding-left:35px">
+    <p style="color: aqua;"><b><i>Personalities :</i></b> </p>
+    </div>
+
+
+<!-- The grid: four columns -->
+<div class="row">
+  <div class="column">
+   
+  </div>
+    <div class="column">
+      <img src="../static/images/messi.jpg" width = "150" height = "150" alt="Messi" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="../static/images/ronaldo.jpg" width = "150" height = "150" alt="Ronaldo" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="../static/images/james.jpg" alt="Lebron" width="150" 
+      height="150" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="../static/images/sachin.jpg" alt="Sachin" width="150"  
+      height="150" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="../static/images/neymar.jpg" width = "150" height = "150" alt="Neymar" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        
+   
+        </div>
+      
+      <div class = "column">
+
+      </div>
+
+
+
+        <div class="column">
+   
+        </div>
+        <div class="column">
+        <img src="../static/images/virat.jpg" width = "150" height = "150" alt="Virat" onclick="myFunction(this);">
+      </div>
+  </div>
+
+
+
+    <form class="form-horizontal" action="/" method="post" enctype="multipart/form-data">
+  
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Upload Your Image :</label>
+        <div class="col-sm-10">          
+          <input type="file" class="form-control" placeholder="Hours Studied"  name="my_image" id="pwd">
+        </div>
+      </div>
+  
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+  
+   
+  
+
+  
+</body> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    function delete_flash(flash){
+        $(flash).parent().remove()
+    }
+</script> 
+
+</html>
