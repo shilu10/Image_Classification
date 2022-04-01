@@ -95,8 +95,7 @@ class Model :
         # Required Objects for our model . 
         logistic_regression = self.load_model().logistic_regression
         new_label = self.label_encoder().new_encoding
-        for img in self.get_cropped_image(images) :          
-            print(img, "ana")  
+        for img in self.get_cropped_image(images) :            
             scalled_raw_img = cv2.resize(img, (32, 32))
             img_har = self.wavelet_transformation(img, 'db1', 5)
             scalled_img_har = cv2.resize(img_har, (32, 32))
